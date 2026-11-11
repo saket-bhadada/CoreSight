@@ -15,4 +15,7 @@ if(ASTRA_SANITIZE)
     add_link_options(-fsanitize=address,undefine)
 endif()
 
-include
+add_library(astra_core STATIC src/string_pool.cpp src/graph.cpp)
+target_include_directories(astra_core PUBLIC include)
+target_compile_options(astra_core PRIVATE -Well -Wextra -Wpedantic)
+
