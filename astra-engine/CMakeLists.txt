@@ -19,3 +19,8 @@ add_library(astra_core STATIC src/string_pool.cpp src/graph.cpp)
 target_include_directories(astra_core PUBLIC include)
 target_compile_options(astra_core PRIVATE -Well -Wextra -Wpedantic)
 
+enable_testing()
+add_executable(astra_tests tests/test_phase1.cpp)
+target_link_libraries(astra_tests PRIVATE astra_core)
+target_compile_options(astra_tests PRIVATE -Well -Wextra -Wpedantic)
+add_test(NAME phase1 COMMAND astra_tests)
