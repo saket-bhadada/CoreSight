@@ -17,5 +17,9 @@ namespace astra
         StringPool &operator=(StringPool &&) noexcept = default;
         StringPool(const StringPool &) = delete;
         StringPool &operator=(const StringPool &) = delete;
+
+        Id intern(std::string_view s);
+        void seal();
+        std::string_view view(Id id);
     };
 }
